@@ -19,7 +19,7 @@
     </Window.Resources>
 
     <Grid x:Name="LayoutRoot" Margin="0,0,-8,-8">
-        <ListBox HorizontalAlignment="Left" Height="218" Margin="33,42,0,0" ItemsSource="{Binding TheLands}" SelectedItem="{Binding Path=CurrentLand, Mode=TwoWay}" VerticalAlignment="Top" Width="168">
+        <ListBox Name="LandList" HorizontalAlignment="Left" Height="218" Margin="33,42,0,0" ItemsSource="{Binding TheLands}" SelectedItem="{Binding Path=CurrentLand, Mode=TwoWay}" VerticalAlignment="Top" Width="168">
             <ListBox.ItemTemplate>
                 <DataTemplate>
                     <TextBlock Text="{Binding lineValue}"/>
@@ -27,10 +27,22 @@
             </ListBox.ItemTemplate>
         </ListBox>
             
-        <Button Content="CheckRelay" HorizontalAlignment="Left" Command="{Binding MyCommand}" Margin="262,56,0,0" VerticalAlignment="Top" Width="75"/>
-        <Button Content="LoadJson" HorizontalAlignment="Left" Command="{Binding GetLands}" Margin="262,217,0,0" VerticalAlignment="Top" Width="75"/>
-        <Button Content="ShowSelected" HorizontalAlignment="Left" Margin="373,151,0,0"  Command="{Binding GetSelected}" VerticalAlignment="Top" Width="75"/>
-        <Button Content="ShowDetail" HorizontalAlignment="Left" Margin="424,217,0,0" Command="{Binding ShowDetail}" VerticalAlignment="Top" Width="75"/>
+        <Button Content="CheckRelay" HorizontalAlignment="Left" Command="{Binding MyCommand}" Margin="224,51,0,0" VerticalAlignment="Top" Width="75"/>
+        <Button Content="LoadJson" HorizontalAlignment="Left" Command="{Binding GetLands}" Margin="224,168,0,0" VerticalAlignment="Top" Width="75"/>
+        <Button Content="ShowSelected" HorizontalAlignment="Left" Margin="224,92,0,0"  Command="{Binding GetSelected}" VerticalAlignment="Top" Width="75"/>
+        <Button Content="ShowDetail" HorizontalAlignment="Left" Margin="224,130,0,0" Command="{Binding ShowDetail}" VerticalAlignment="Top" Width="75"/>
+        <StackPanel  Orientation="Vertical" HorizontalAlignment="Left" Height="258" Margin="322,10,0,0" VerticalAlignment="Top" Width="229">
+            <Label Content="ParkID"/>
+            <TextBox Height="23" TextWrapping="Wrap" Text="{Binding ElementName=LandList, Path=SelectedItem.parkID, Mode=TwoWay}" />
+            <Label Content="LandID" HorizontalAlignment="Left"  VerticalAlignment="Top"/>
+            <TextBox HorizontalAlignment="Left" Height="23"  TextWrapping="Wrap" Text="{Binding ElementName=LandList, Path=SelectedItem.landID, Mode=TwoWay}" VerticalAlignment="Top" Width="229" />
+        <Label Content="Name    " HorizontalAlignment="Left"  VerticalAlignment="Top"/>
+            <TextBox HorizontalAlignment="Left" Height="23"  TextWrapping="Wrap" Text="{Binding ElementName=LandList, Path=SelectedItem.lineValue, Mode=TwoWay}" VerticalAlignment="Top" Width="229" />
+        
+        
+        </StackPanel>
+        <Button Content="Save" HorizontalAlignment="Left" Command="{Binding SaveCommand}" Margin="224,208,0,0" VerticalAlignment="Top" Width="75"/>
+
 
     </Grid>
 </Window>

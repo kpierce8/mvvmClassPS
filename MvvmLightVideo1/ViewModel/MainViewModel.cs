@@ -104,7 +104,7 @@ namespace MvvmLightVideo1.ViewModel
         }
 
         private const string FileBase = "C:\\Users\\Ken\\Dropbox\\json\\theLandsExperiment.json";
-
+        private const string FileBase2 = "C:\\Users\\Ken\\Dropbox\\json\\theLandsExperimentOut.json";
 
         public ObservableCollection<ltdilRecord> Refresh()
         {
@@ -117,6 +117,19 @@ namespace MvvmLightVideo1.ViewModel
             }
 
         }
+
+        public void Save()
+        {
+            using (StreamWriter r = new StreamWriter(FileBase2))
+            {
+               // string json = r.ReadToEnd();
+                r.Write(JsonConvert.SerializeObject(_theLands));
+                //var ocLands = new ObservableCollection<ltdilRecord>(lands.Lands);
+                //return ocLands;
+            }
+
+        }
+
 
 
         private ObservableCollection<ltdilRecord> _theLands;
@@ -177,6 +190,24 @@ namespace MvvmLightVideo1.ViewModel
             }
         }
 
+
+        private RelayCommand _save;
+
+        /// <summary>
+        /// Gets the Save.
+        /// </summary>
+        public RelayCommand SaveCommand
+        {
+            get
+            {
+                return _save
+                    ?? (_save = new RelayCommand(
+                    () =>
+                    {
+                        Save();
+                    }));
+            }
+        }
         ////public override void Cleanup()
         ////{
         ////    // Clean up if needed
