@@ -1,0 +1,21 @@
+﻿<Window x:Class="MvvmLightVideo1.LandDetailView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:ignore="http://www.galasoft.ch/ignore"
+        mc:Ignorable="d ignore"
+        Width="300"
+        Height="250"
+        DataContext="{Binding LandDetail, Source={StaticResource Locator}}">
+
+    <Grid>
+        <Label Content="Landname" HorizontalAlignment="Left" Margin="40,42,0,0" VerticalAlignment="Top"/>
+        <Label Content="ParkID" HorizontalAlignment="Left" Margin="40,93,0,0" VerticalAlignment="Top"/>
+        <Label Content="LandID" HorizontalAlignment="Left" Margin="40,147,0,0" VerticalAlignment="Top"/>
+        <TextBlock HorizontalAlignment="Left" Margin="157,59,0,0" TextWrapping="Wrap" Text="{Binding LandName}" VerticalAlignment="Top"/>
+        <TextBlock HorizontalAlignment="Left" Margin="173,105,0,0" TextWrapping="Wrap" Text="{Binding LandID}" VerticalAlignment="Top"/>
+        <TextBlock HorizontalAlignment="Left" Margin="166,156,0,0" TextWrapping="Wrap" Text="{Binding ParkID}" VerticalAlignment="Top"/>
+
+    </Grid>
+</Window>
